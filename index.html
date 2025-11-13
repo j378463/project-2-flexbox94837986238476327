@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <title>Doggos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Normalize browser defaults -->
     <link rel="stylesheet" href="css/normalize.css">
+    <!-- Main styles: mobile-first flexbox layout -->
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <div class="wrapper">
-      <!-- row 1, 4 individual boxes -->
+<!-- 
+        ROW 1: 4 equal columns (desktop)
+        - Uses .col-1 → flex: 0 0 calc(25% - 1rem)
+        - Mobile: stacks vertically
+      -->
       <div class="row">
         <article class="col-1">
           <h3>Boomer</h3>
@@ -38,7 +44,13 @@
           <p><a href="https://www.laanimalservices.com/adopt/" target="_blank">Read more &gt;&gt;</a></p>
         </article>
       </div>
-      <!-- row 2, 2 boxes spanning 2 rows -->
+      
+<!-- 
+        ROW 2: 2 items, each spans 2 columns (desktop)
+        - Uses .col-2 → flex: 0 0 calc(50% - 1rem)
+        - Tablet: same 2-col layout
+        - Mobile: stacks
+      -->
       <div class="row">
         <article class="col-2">
           <h3>Yoda</h3>
@@ -53,7 +65,14 @@
           <p><a href="https://www.laanimalservices.com/adopt/" target="_blank">Read more &gt;&gt;</a></p>
         </article>
       </div>
-        <!-- row 3: 1-col left + 3-col right -->
+      
+<!-- 
+        ROW 3: Asymmetric layout
+        - Desktop: 1-col (25%) + 3-col (75%)
+        - Tablet: 2 equal columns (50% each)
+        - Mobile: stacked vertically
+        - Uses .col-left and .col-right with specific flex basis
+      -->
         <div class="row row-3">
             <article class="col-left">
                 <h3>Quick Facts</h3>
@@ -69,7 +88,12 @@
             </article>
         </div>
 
-        <!-- row 4: single full-width -->
+<!-- 
+        ROW 4: Full-width banner
+        - Desktop: 100% width (with gap compensation)
+        - Tablet: splits into 2 equal columns
+        - Mobile: full width again
+      -->
         <div class="row row-4">
             <article class="col-full">
                 <h3>Why Adopt?</h3>
@@ -79,7 +103,13 @@
             </article>
         </div>
 
-        <!-- row 5: 1-2-1, order changes on resize -->
+<!-- 
+        ROW 5: 1-2-1 layout with visual reordering
+        - Desktop: col-1 (25%) | col-2 (50%) | col-1 (25%)
+        - Tablet: flex-direction: row-reverse + order: -1 → middle card appears first
+        - Mobile: stacked, middle card on top via order: -1
+        - KEY FLEX PROPERTY: order (changes visual position without touching HTML)
+      -->
         <div class="row row-5">
             <article class="col-1">
                 <h3>Training</h3>
@@ -98,7 +128,14 @@
             </article>
         </div>
 
-        <!-- row 6: UNIQUE – 5 testimonial cards -->
+<!-- 
+        ROW 6: UNIQUE LAYOUT (Requirement: must be different from others)
+        - 5 testimonial cards (more than 4 items)
+        - Desktop: 5 cards, justify-content: space-evenly
+        - Tablet: 3 cards per row (wraps)
+        - Mobile: stacked
+        - Uses flex-wrap + space-evenly + circular images
+      -->
         <div class="row row-6">
             <div class="card">
                 <img src="https://placedog.net/200/200/?id=60" alt="Testimonial 1">
@@ -123,4 +160,5 @@
         </div>
     </div>
   </body>
+
 </html>
